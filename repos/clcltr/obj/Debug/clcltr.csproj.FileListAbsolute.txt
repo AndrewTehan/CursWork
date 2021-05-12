@@ -1,0 +1,10 @@
+C:\Users\Andrew\source\repos\clcltr\bin\Debug\clcltr.exe.config
+C:\Users\Andrew\source\repos\clcltr\bin\Debug\clcltr.exe
+C:\Users\Andrew\source\repos\clcltr\bin\Debug\clcltr.pdb
+C:\Users\Andrew\source\repos\clcltr\obj\Debug\clcltr.csprojAssemblyReference.cache
+C:\Users\Andrew\source\repos\clcltr\obj\Debug\clcltr.Form1.resources
+C:\Users\Andrew\source\repos\clcltr\obj\Debug\clcltr.Properties.Resources.resources
+C:\Users\Andrew\source\repos\clcltr\obj\Debug\clcltr.csproj.GenerateResource.cache
+C:\Users\Andrew\source\repos\clcltr\obj\Debug\clcltr.csproj.CoreCompileInputs.cache
+C:\Users\Andrew\source\repos\clcltr\obj\Debug\clcltr.exe
+C:\Users\Andrew\source\repos\clcltr\obj\Debug\clcltr.pdb

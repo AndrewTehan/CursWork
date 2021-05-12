@@ -1,0 +1,132 @@
+﻿<!--<Page x:Class="course_work.Pages.Liked"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:course_work.Pages"
+      mc:Ignorable="d"
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Liked">
+
+    <Grid>
+        <Label Content="Liked" HorizontalAlignment="Center" VerticalAlignment="Center" />
+    </Grid>
+</Page>-->
+<Page xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+   x:Class="course_work.Pages.Liked">
+
+    <Page.Resources>
+        <ControlTemplate x:Key="SliderControlTemplate" TargetType="{x:Type Slider}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <TickBar Grid.Row="0" x:Name="TopTick" SnapsToDevicePixels="True" Placement="Top" Fill="#FFC68B8B" Height="4" Visibility="Collapsed" />
+                <Border x:Name="TrackBackground" Margin="0" CornerRadius="4" Height="6" Grid.Row="1" BorderBrush="#FF0B0C0B" BorderThickness="1" Opacity="0.9">
+                    <Border.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF0D1949" />
+                            <GradientStop Color="#FFA0B1F7" Offset="1" />
+                            <GradientStop Color="#FF50527A" Offset="0.474" />
+                        </LinearGradientBrush>
+                    </Border.Background>
+                </Border>
+                <Track Height="{TemplateBinding Height}" Grid.Row="1" x:Name="PART_Track">
+                    <Track.DecreaseRepeatButton>
+                        <RepeatButton>
+                            <RepeatButton.Template>
+                                <ControlTemplate TargetType="{x:Type RepeatButton}">
+                                    <Border Background="Transparent" />
+                                </ControlTemplate>
+                            </RepeatButton.Template>
+                        </RepeatButton>
+                    </Track.DecreaseRepeatButton>
+                    <Track.Thumb>
+                        <Thumb Foreground="#FFD44242" Width="3" BorderBrush="White" BorderThickness="0" Opacity="0.9">
+                            <Thumb.Background>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="#FFF5F6FB" Offset="0" />
+                                    <GradientStop Color="#FF6772AF" Offset="0.138" />
+                                    <GradientStop Color="#FF6772AF" Offset="0.875" />
+                                    <GradientStop Color="#FFF3F4FB" Offset="0.978" />
+                                    <GradientStop Color="#FF485078" Offset="0.509" />
+                                </LinearGradientBrush>
+                            </Thumb.Background>
+                            <Thumb.Template>
+                                <ControlTemplate>
+                                    <Grid>
+                                        <Ellipse Width="5" Height="5" Fill="Red" />
+                                    </Grid>
+                                </ControlTemplate>
+                            </Thumb.Template>
+                        </Thumb>
+                    </Track.Thumb>
+                    <Track.IncreaseRepeatButton>
+                        <RepeatButton Command="Slider.IncreaseLarge" Foreground="#FF9F5858">
+                            <RepeatButton.Background>
+                                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                                    <GradientStop Color="#FFF3F3F3" Offset="0" />
+                                    <GradientStop Color="#FFEBEBEB" Offset="0.5" />
+                                    <GradientStop Color="#FFDDDDDD" Offset="0.5" />
+                                    <GradientStop Color="#FFCE2D2D" Offset="1" />
+                                </LinearGradientBrush>
+                            </RepeatButton.Background>
+                            <RepeatButton.Template>
+                                <ControlTemplate>
+                                    <Border Background="Transparent" />
+                                </ControlTemplate>
+                            </RepeatButton.Template>
+                        </RepeatButton>
+                    </Track.IncreaseRepeatButton>
+                </Track>
+            </Grid>
+        </ControlTemplate>
+    </Page.Resources>
+
+    <Grid>
+        <StackPanel Background="Transparent" Width="450">
+            <!-- To interactively stop, pause, and play the media, the LoadedBehavior
+               property of the MediaElement must be set to "Manual". -->
+            <MediaElement Source="C:\Users\Andrew\Videos\War.mp4" Name="myMediaElement"
+                 Width="450" Height="250" LoadedBehavior="Manual" UnloadedBehavior="Stop" Stretch="Fill"
+                 MediaOpened="Element_MediaOpened" MediaEnded="Element_MediaEnded" />
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30" />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="0">
+                    <!--Seek to slider. Ths slider allows you to jump to different parts of the media playback.-->
+                    <Slider Name="timelineSlider" Margin="5" ValueChanged="SeekToMediaPosition" Width="300" />
+                </StackPanel>
+
+                <Grid Grid.Row="1" Height="50">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+
+                    <Image Grid.Column="0" Source="..\Images\playIcon.png" Name="ImagePlay"  MouseDown="OnMouseDownPlayMedia" Margin="5" Height="40" Width="40" />
+                    <Image Grid.Column="1" Source="..\Images\stopIcon.png" MouseDown="OnMouseDownStopMedia" Margin="5" Height="40" Width="40" />
+                    <Image MouseDown="SoundMedia" Grid.Column="2" x:Name="ImageSound"
+                                    Source="/Images/soundOnIcon.png" Margin="10.333,4,8.333,4" />
+
+                    <!--<TextBlock Foreground="White" VerticalAlignment="Center" Margin="5"  >Volume</TextBlock>-->
+                    <Slider  Grid.Column="3" Name="volumeSlider" VerticalAlignment="Center" ValueChanged="ChangeMediaVolume" Minimum="0" Maximum="1" Value="0.5" Width="70" />
+
+                    <!--<TextBlock Foreground="White" Margin="5"  VerticalAlignment="Center">Speed</TextBlock>-->
+                    <Slider  Grid.Column="5" Name="speedRatioSlider" VerticalAlignment="Center" ValueChanged="ChangeMediaSpeedRatio" Value="1" Width="70" />
+                    <Image Grid.Column="6" x:Name="ImageScreen" Source="/Images/fullScreenIcon.png" />
+                </Grid>
+            </Grid>
+        </StackPanel>
+    </Grid>
+</Page>

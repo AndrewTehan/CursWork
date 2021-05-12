@@ -1,0 +1,20 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:v="clr-namespace:System;assembly=mscorlib">
+    <v:String x:Key="homeBut">Дом</v:String>
+    <v:String x:Key="historyBut">История</v:String>
+    <v:String x:Key="watchLaterBut">Смотреть позже</v:String>
+    <v:String x:Key="likedBut">Понравилось</v:String>
+    <v:String x:Key="lang">Язык</v:String>
+    <v:String x:Key="allSelectBut">Всё</v:String>
+    <v:String x:Key="musicSelectBut">Музыка</v:String>
+    <v:String x:Key="historySelectBut">История</v:String>
+    <v:String x:Key="scienceSelectbut">Наука</v:String>
+    <v:String x:Key="MediaLibrary">Медиатека</v:String>
+    <v:String x:Key="theme">Тема</v:String>
+    <v:String x:Key="WelcomLabel">Привет!!!</v:String>
+    <v:String x:Key="ActionLabel">Авторизуйтесь или зарегистрируйтесь</v:String>
+    <v:String x:Key="logInBut">Зарегиструйтесь</v:String>
+    <v:String x:Key="singInBut">Авторизуйтесь</v:String>
+</ResourceDictionary>

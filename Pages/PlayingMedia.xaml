@@ -1,0 +1,161 @@
+﻿<Page x:Class="course_work.Pages.PlayingMedia"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:course_work.Pages" d:DataContext="{d:DesignInstance Type=local:PlayingMediaVeiwModel}"
+      mc:Ignorable="d"
+      HorizontalAlignment="Stretch"
+      Title="PlayingMedia">
+    <Page.Resources>
+        <ControlTemplate x:Key="SliderControlTemplate" TargetType="{x:Type Slider}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <TickBar Grid.Row="0" x:Name="TopTick" SnapsToDevicePixels="True" Placement="Top" Fill="#FFC68B8B" Height="4" Visibility="Collapsed" />
+                <Border x:Name="TrackBackground" Margin="0" CornerRadius="4" Height="6" Grid.Row="1" BorderBrush="#FF0B0C0B" BorderThickness="1" Opacity="0.9">
+                    <Border.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF0D1949" />
+                            <GradientStop Color="#FFA0B1F7" Offset="1" />
+                            <GradientStop Color="#FF50527A" Offset="0.474" />
+                        </LinearGradientBrush>
+                    </Border.Background>
+                </Border>
+                <Track Height="{TemplateBinding Height}" Grid.Row="1" x:Name="PART_Track">
+                    <Track.DecreaseRepeatButton>
+                        <RepeatButton>
+                            <RepeatButton.Template>
+                                <ControlTemplate TargetType="{x:Type RepeatButton}">
+                                    <Border Background="Transparent" />
+                                </ControlTemplate>
+                            </RepeatButton.Template>
+                        </RepeatButton>
+                    </Track.DecreaseRepeatButton>
+                    <Track.Thumb>
+                        <Thumb Foreground="#FFD44242" Width="3" BorderBrush="White" BorderThickness="0" Opacity="0.9">
+                            <Thumb.Background>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="#FFF5F6FB" Offset="0" />
+                                    <GradientStop Color="#FF6772AF" Offset="0.138" />
+                                    <GradientStop Color="#FF6772AF" Offset="0.875" />
+                                    <GradientStop Color="#FFF3F4FB" Offset="0.978" />
+                                    <GradientStop Color="#FF485078" Offset="0.509" />
+                                </LinearGradientBrush>
+                            </Thumb.Background>
+                            <Thumb.Template>
+                                <ControlTemplate>
+                                    <Grid>
+                                        <Ellipse Width="5" Height="5" Fill="Red" />
+                                    </Grid>
+                                </ControlTemplate>
+                            </Thumb.Template>
+                        </Thumb>
+                    </Track.Thumb>
+                    <Track.IncreaseRepeatButton>
+                        <RepeatButton Command="Slider.IncreaseLarge" Foreground="#FF9F5858">
+                            <RepeatButton.Background>
+                                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                                    <GradientStop Color="#FFF3F3F3" Offset="0" />
+                                    <GradientStop Color="#FFEBEBEB" Offset="0.5" />
+                                    <GradientStop Color="#FFDDDDDD" Offset="0.5" />
+                                    <GradientStop Color="#FFCE2D2D" Offset="1" />
+                                </LinearGradientBrush>
+                            </RepeatButton.Background>
+                            <RepeatButton.Template>
+                                <ControlTemplate>
+                                    <Border Background="Transparent" />
+                                </ControlTemplate>
+                            </RepeatButton.Template>
+                        </RepeatButton>
+                    </Track.IncreaseRepeatButton>
+                </Track>
+            </Grid>
+        </ControlTemplate>
+    </Page.Resources>
+
+    <Grid>
+        <ScrollViewer VerticalScrollBarVisibility="Visible">
+            <StackPanel DataContext="{Binding media}" Background="WhiteSmoke">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+
+                    <StackPanel Name="MediaStack">
+                        <Border Background="Black">
+                            <MediaElement Grid.Row="0" Source="{Binding Location}" Name="myMediaElement" LoadedBehavior="Manual" UnloadedBehavior="Stop" Stretch="Fill"
+                                MediaOpened="Element_MediaOpened" MediaEnded="Element_MediaEnded" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,10,9.8,10" Height="629" />
+                        </Border>
+
+                        <StackPanel Grid.Row="1" HorizontalAlignment="Center" Width="500" Orientation="Horizontal">
+                            <Grid Height="70" Width="500">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition Height="45" />
+                                </Grid.RowDefinitions>
+                                <StackPanel Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="450">
+                                    <Slider ValueChanged="SeekToMediaPosition" Name="timelineSlider" Width="440" Margin="0 0 5 0" />
+                                </StackPanel>
+                                <Grid Grid.Row="1">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="15*" />
+                                        <ColumnDefinition Width="10*" />
+                                        <ColumnDefinition Width="10*" />
+                                        <ColumnDefinition Width="10*" />
+                                        <ColumnDefinition Width="17*" />
+                                        <ColumnDefinition Width="6*" />
+                                        <ColumnDefinition Width="17*" />
+                                        <ColumnDefinition Width="10*" />
+                                        <ColumnDefinition Width="15*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Border x:Name="BorderTextBegin" Grid.Column="0">
+                                        <TextBlock x:Name="time" TextWrapping="Wrap" Height="19" Width="57" Text="  --:--" Foreground="Black" Margin="10,0,0,0" />
+                                    </Border>
+
+                                    <Border  x:Name="BorderTextEnd" Grid.Column="8" Opacity="1">
+                                        <TextBlock x:Name="timeend" TextWrapping="Wrap" Height="22" Width="60" Text="   --:--" Foreground="Black" Margin="7,0,0,0" />
+                                    </Border>
+
+                                    <Image Grid.Column="1" MouseDown="playMedia" x:Name="ImagePlay" Source="/Images/playIcon.png" Margin="9,4,7.333,4" />
+
+                                    <Image Source="/Images/stopIcon.png" Grid.Column="2" MouseDown="OnMouseDownStopMedia" Margin="8.667,4,7.667,4" />
+
+                                    <Image MouseDown="SoundMedia" Grid.Column="3" x:Name="ImageSound"
+                                    Source="/Images/soundOnIcon.png" Margin="10.333,4,8.333,4" />
+
+                                    <StackPanel Grid.Column="4" Margin="0,0,1.667,0">
+                                        <TextBlock Foreground="Black" VerticalAlignment="Center" Margin="5" Text="Volume" />
+                                        <Slider Name="volumeSlider" VerticalAlignment="Center" ValueChanged="ChangeMediaVolume"
+                                        Minimum="0" Maximum="1" Value="0.5" Width="70" HorizontalAlignment="Left" Margin="3,0,0,0" />
+                                    </StackPanel>
+
+                                    <StackPanel Grid.Column="6" Margin="4.333,0,24,0">
+                                        <TextBlock Foreground="Black" VerticalAlignment="Center" Text="Speed" />
+                                        <Slider Name="speedRatioSlider" VerticalAlignment="Center" HorizontalAlignment="Left" ValueChanged="ChangeMediaSpeedRatio"
+                                            Value="1" Maximum="3" Minimum="1" Width="70" />
+                                    </StackPanel>
+                                    <Image Grid.Column="7" MouseDown="screenSize"  x:Name="ImageScreen" Source="/Images/fullScreenIcon.png" />
+                                </Grid>
+                            </Grid>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="2">
+                        <TextBlock Text="Name" Grid.Row="0" HorizontalAlignment="Center"  VerticalAlignment="Center" />
+                        <TextBlock Text="{Binding Id}" HorizontalAlignment="Center" VerticalAlignment="Bottom" />
+
+                        <TextBlock Text="Type" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        <TextBlock Text="{Binding Type}" HorizontalAlignment="Center" VerticalAlignment="Bottom" />
+                    </StackPanel>
+                </Grid>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>
