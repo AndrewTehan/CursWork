@@ -29,25 +29,34 @@
     </Page.Resources>
 
     <Grid>
-        <Grid.Background>
-            <ImageBrush ImageSource="..\Images\Background.png" />
-        </Grid.Background>
+
         <Grid.RowDefinitions>
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="2*" />
         </Grid.RowDefinitions>
 
-        <StackPanel Grid.Row="0" Orientation="Horizontal" Width="149">
+        <Rectangle Grid.RowSpan="5">
+            <Rectangle.Fill>
+                <LinearGradientBrush StartPoint="1.1,0" EndPoint="0,1">
+                    <GradientStop Color="White" Offset="0.1" />
+                    <GradientStop Color="Red" Offset="0.5" />
+                    <GradientStop Color="DarkOrange" Offset="0.8" />
+                    <GradientStop Color="White" Offset="1.0" />
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+
+        <StackPanel Grid.Row="0" VerticalAlignment="Bottom" Orientation="Horizontal" Width="149">
             <Image  Source="/Images/nicknameIcon.png" Width="39" Height="37" Margin="0" HorizontalAlignment="Left" />
             <Label Grid.Row="0" Content="Enter login" HorizontalAlignment="Center" VerticalAlignment="Center" />
         </StackPanel>
 
         <TextBox x:Name="login" FontSize="14" Width="200" Height="30" TextAlignment="Center" Text="{Binding Login}" Grid.Row="1" Margin="5" Background="AliceBlue" />
 
-        <StackPanel Grid.Row="2" Orientation="Horizontal" Width="149">
+        <StackPanel Grid.Row="2" VerticalAlignment="Bottom" Orientation="Horizontal" Width="149">
             <Image  Source="/Images/passIcon.png" Width="39" Height="37" Margin="0" HorizontalAlignment="Left" />
             <Label Content="Enter password" HorizontalAlignment="Center" VerticalAlignment="Center" />
         </StackPanel>

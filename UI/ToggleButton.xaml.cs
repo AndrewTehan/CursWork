@@ -22,7 +22,7 @@ namespace ToggleSwitch
     {
         private Thickness LeftSide = new Thickness(-12, 0, 0, 0);
         private Thickness RightSide = new Thickness(0, 0, -12, 0);
-        private SolidColorBrush Off = new SolidColorBrush(Color.FromRgb(238, 238, 238));
+        private SolidColorBrush Off = new SolidColorBrush(Color.FromRgb(255, 255, 255));
         private SolidColorBrush On = new SolidColorBrush(Color.FromRgb(255, 0, 0));
         private bool Toggled = false;
         public int _language;

@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Andrew\source\course_workEFtest\App.xaml
-13193657208
-
+15326388818
+5-986271460
 34-1977718034
-18963589855
-Localization\lang_en-US.xaml;Localization\lang_ru-RU.xaml;MainWindow.xaml;Pages\Authorization.xaml;Pages\History.xaml;Pages\Home.xaml;Pages\Liked.xaml;Pages\PlayingMedia.xaml;Pages\WatchLater.xaml;Pages\Registration.xaml;Pages\Welcom.xaml;Style.xaml;UI\ToggleButton.xaml;
+191494159292
+Localization\lang_en-US.xaml;Localization\lang_ru-RU.xaml;MainWindow.xaml;Pages\Authorization.xaml;Pages\History.xaml;Pages\Home.xaml;Pages\Liked.xaml;Pages\PlayingMedia.xaml;Pages\WatchLater.xaml;Pages\Registration.xaml;Pages\Welcom.xaml;Style.xaml;Theme\Dark.xaml;Theme\Light.xaml;UI\ToggleButton.xaml;
 
-False
+True
 

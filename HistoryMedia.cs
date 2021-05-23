@@ -10,6 +10,6 @@ namespace course_work
     {
         public int HistoryMediaId { get; set; }
         public string NameUser { get; set; }
-        public int MediaId { get; set; }
+        public int IdMedia { get; set; }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -22,6 +23,7 @@ namespace course_work
     public partial class MainWindow : Window
     {
         public bool mainMenuTrigger = true;
+        public bool speech = true;
 
         public MainWindow()
         {
@@ -61,6 +63,16 @@ namespace course_work
             {
                 b1.IsEnabled = b2.IsEnabled = b3.IsEnabled = b4.IsEnabled = menuBut.IsEnabled = true;
             }
+        }
+
+        private void playWelocoming(object sender, RoutedEventArgs e)
+        {
+            SoundPlayer sp = new SoundPlayer
+            {
+                SoundLocation = @"C:\Users\Andrew\source\course_workEFtest\Sound\welcom.wav"
+            };
+            sp.Load();
+            sp.Play();
         }
     }
 }

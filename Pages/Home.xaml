@@ -4,7 +4,8 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
-      xmlns:local="clr-namespace:course_work.Pages" d:DataContext="{d:DesignInstance Type=local:HomeViewModel}"
+      xmlns:local="clr-namespace:course_work.Pages"
+      d:DataContext="{d:DesignInstance Type=local:HomeViewModel}"
       mc:Ignorable="d"
       Title="Home">
 
@@ -42,7 +43,7 @@
 
     <Grid>
         <ScrollViewer Background="Transparent">
-            <StackPanel ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="Transparent">
+            <StackPanel ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="Transparent" Margin="0">
                 <!--<ListBox Margin="0" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="Transparent" ItemsPanel="{StaticResource WrapTemplate}"
                          ItemsSource="{Binding mediaFiles}" SelectedItem="{Binding SelectedMediaFile}" SelectionChanged="ListBox_SelectionChanged">
                     <i:Interaction.Triggers>
@@ -69,11 +70,52 @@
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>-->
-                <ListBox Margin="0" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="Transparent" ItemsPanel="{StaticResource WrapTemplate}"
+                <ListBox Padding="0" Margin="0" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="Transparent" ItemsPanel="{StaticResource WrapTemplate}"
                          ItemsSource="{Binding Media}" SelectedItem="{Binding SelectedMedia}" SelectionChanged="ListBox_SelectionChanged">
+
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="SelectionChanged">
                             <i:InvokeCommandAction Command="{Binding PlayMedia}" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <ListBoxItem Margin="0" Padding="10" Style="{StaticResource NoSelectionListBoxItemStyle}">
+                                <Grid Background="{x:Null}">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto" />
+                                        <RowDefinition Height="auto" />
+                                        <RowDefinition Height="auto" />
+                                    </Grid.RowDefinitions>
+                                    <!--<MediaElement Width="100" Height="80" Grid.Row="0" Source="{Binding Location}" LoadedBehavior="Manual" UnloadedBehavior="Manual" />-->
+
+                                    <Border Grid.Row="0" Background="LightGreen">
+                                        <!--<MediaElement LoadedBehavior="Stop" Volume="0" UnloadedBehavior="Manual" Source="{Binding Location}" Name="myMediaElement" Stretch="Uniform"
+                                        HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />-->
+                                        <Image Source="{Binding ImageBytes}" />
+                                    </Border>
+                                    <Border Grid.Row="1" Background="LightYellow">
+                                        <Label FontSize="18" Content="{Binding Id}" />
+                                    </Border>
+                                    <Grid Grid.Row="2" Background="LightBlue">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition />
+                                            <ColumnDefinition />
+                                        </Grid.ColumnDefinitions>
+                                        <Label Grid.Column="0" Content="просмотры" />
+                                        <Label Grid.Column="1" Content="лайки" />
+                                    </Grid>
+                                </Grid>
+                            </ListBoxItem>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+                <!--<ListBox Margin="0" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="Transparent" ItemsPanel="{StaticResource WrapTemplate}"
+                         ItemsSource="{Binding mediaFiles}" SelectedItem="{Binding SelectedMediaFile}" SelectionChanged="ListBox_SelectionChanged">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="SelectionChanged">
+                            <i:InvokeCommandAction Command="{Binding PlayMediaFile}" />
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
 
@@ -86,6 +128,7 @@
                                         <RowDefinition Height="auto" />
                                         <RowDefinition Height="auto" />
                                     </Grid.RowDefinitions>
+
                                     <Image Grid.Row="0" Source="C:\Users\Andrew\source\repos\course_work\Images\homeIcon.png" />
                                     <Label Grid.Row="1" FontSize="18" Content="{Binding Id}" />
                                     <Label Grid.Row="2" Content="{Binding Type}" Background="{x:Null}" />
@@ -93,7 +136,7 @@
                             </ListBoxItem>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
-                </ListBox>
+                </ListBox>-->
 
                 <!--<Button Width="200" Height="50" VerticalAlignment="Top" Margin="0,20,0,0" Style="{StaticResource BorderlessButton}">
                     <StackPanel>

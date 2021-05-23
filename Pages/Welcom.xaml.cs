@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -25,6 +26,16 @@ namespace course_work.Pages
             InitializeComponent();
 
             DataContext = new WelcomViewModel(mainWinVm);
+        }
+
+        private void PlayHelp(object sender, MouseButtonEventArgs e)
+        {
+            SoundPlayer sp = new SoundPlayer
+            {
+                SoundLocation = @"C:\Users\Andrew\source\course_workEFtest\Sound\singIn.wav"
+            };
+            sp.Load();
+            sp.Play();
         }
     }
 }

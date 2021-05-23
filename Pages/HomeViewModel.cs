@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Windows.Media.Imaging;
 
 namespace course_work.Pages
 {
@@ -48,22 +49,16 @@ namespace course_work.Pages
                 return playMedia ?? new RelayCommand(
                     obg =>
                     {
-                        mainWinVM.WelcomPage = new Pages.PlayingMedia(SelectedMedia, mainWinVM);
-                    }
+                        using (ApplicationContext db = new ApplicationContext())
+                        {
+                            HistoryMedia p1 = new HistoryMedia { NameUser = AuthorizationViewModel.currentUser.Nickname, IdMedia = Id };
 
-                //    using (ApplicationContext db = new ApplicationContext())
-                //{
-                //    var user = db.Users.Where(u => u.Nickname == Login && u.Password == Pass).ToList();
-                //    if (user.Count == 1)
-                //    {
-                //        MessageBox.Show("Приветсвую тебя, чемпион!!!");
-                //        mainWinVM.WelcomPage = new Home(mainWinVM);
-                //    }
-                //    else
-                //    {
-                //        MessageBox.Show("Не существует польщователя с данным ником");
-                //    }
-                //}
+                            // добавление
+                            db.HistorieMedias.Add(p1);
+                            db.SaveChanges();
+                            mainWinVM.WelcomPage = new Pages.PlayingMedia(SelectedMedia, mainWinVM);
+                        }
+                    }
                 );
             }
         }
@@ -78,6 +73,21 @@ namespace course_work.Pages
             {
                 SelectedMedia.Id = value;
                 OnPropertyChanged("Id");
+            }
+        }
+
+        private BitmapImage imageBytes;
+
+        public BitmapImage ImageBytes
+        {
+            get
+            {
+                return imageBytes;
+            }
+            set
+            {
+                imageBytes = value;
+                OnPropertyChanged("ImageBytes");
             }
         }
 
@@ -117,6 +127,19 @@ namespace course_work.Pages
                     this.Media.Add(i);
             }
             this.mainWinVM = mainWinVm;
+        }
+
+        public static BitmapImage ToImage(byte[] array)
+        {
+            using (var ms = new System.IO.MemoryStream(array))
+            {
+                var image = new BitmapImage();
+                image.BeginInit();
+                image.CacheOption = BitmapCacheOption.OnLoad; // here
+                image.StreamSource = ms;
+                image.EndInit();
+                return image;
+            }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

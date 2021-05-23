@@ -25,7 +25,7 @@
         </ControlTemplate>
 
         <Style x:Key="MultiTriggerButtonStyle" TargetType="Button">
-            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Background" Value="#FFEEEEEE" />
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
@@ -35,19 +35,24 @@
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
+
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
                     <Setter Property="Background">
                         <Setter.Value>
                             <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
-                                <GradientStop Color="red" Offset="0"></GradientStop>
-                                <GradientStop Color="Transparent" Offset="1"></GradientStop>
+                                <GradientStop Color="#F41C1C" Offset="0"></GradientStop>
+                                <GradientStop Color="#FFEEEEEE" Offset="1"></GradientStop>
                             </LinearGradientBrush>
                         </Setter.Value>
                     </Setter>
                 </Trigger>
+                <!--<EventTrigger RoutedEvent="Click">
+                    <SoundPlayerAction Source="C:\Users\Andrew\source\course_workEFtest\Sound\but.wav" />
+                </EventTrigger>-->
             </Style.Triggers>
         </Style>
+
         <Style x:Key="MultiTriggerMenuButtonStyle" TargetType="Button">
             <Setter Property="Background" Value="Transparent" />
             <Setter Property="Template">
@@ -61,27 +66,27 @@
             </Setter>
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" Value="#FFEEEEEE" />
+                    <Setter Property="Background" Value="#FFC5B8B8" />
                 </Trigger>
             </Style.Triggers>
         </Style>
     </Window.Resources>
 
-    <Grid  ShowGridLines="False">
+    <Grid  ShowGridLines="False" Background="White">
         <Grid.RowDefinitions>
             <RowDefinition Height="70" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <Grid Grid.Row="0">
+        <Grid Grid.Row="0" Loaded="playWelocoming">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="75*" x:Name="menuGrid" MinWidth="34" />
+                <ColumnDefinition Width="99*" x:Name="menuGrid" MinWidth="34" />
                 <ColumnDefinition Width="113*" MinWidth="70" />
                 <ColumnDefinition Width="518*" MinWidth="220" />
                 <ColumnDefinition Width="58*" MinWidth="34" />
             </Grid.ColumnDefinitions>
 
-            <Button x:Name="menuBut" Style="{StaticResource MultiTriggerButtonStyle}" IsEnabled="False">
+            <Button x:Name="menuBut" Style="{StaticResource MultiTriggerButtonStyle}" IsEnabled="False" VerticalAlignment="Center" HorizontalAlignment="Center" Height="50" Margin="10,10,10.4,10.4" Width="170">
                 <Image Grid.Column="0" x:Name="Menu" Source="/Images/backArrowIcon.png" VerticalAlignment="Center" HorizontalAlignment="Center"
                    Height="34" Width="34" MouseDown="MainMenu" />
             </Button>
@@ -95,38 +100,45 @@
                 </Grid.RowDefinitions>
 
                 <DockPanel Grid.Row="0" HorizontalAlignment="Center">
-                    <Border Margin="3"  Background="#FFEEEEEE">
-                        <TextBox Width="699" Margin="5,5,5,4.6" BorderThickness="0" SelectionBrush="{x:Null}">
-                        </TextBox>
-                    </Border>
-
-                    <Button Grid.Column="3" Width="35" Background="Transparent" BorderBrush="Transparent" Margin="0,0,0,0">
+                    <Button Grid.Column="3" Width="40" Background="Transparent" BorderBrush="Transparent">
                         <Image Source="pack://application:,,,/Images/searchIcon.png" />
                     </Button>
+                    <Border Margin="3" Background="#FFD9D9D9">
+                        <TextBox Width="930" Margin="5" BorderThickness="0" SelectionBrush="{x:Null}">
+                        </TextBox>
+                    </Border>
                 </DockPanel>
 
-                <StackPanel Grid.Row="1" Name="mainStackPanel"  Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10,2,10,2.4" Width="513">
+                <StackPanel Grid.Row="1" Name="mainStackPanel"  Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Width="513">
 
-                    <Border Margin="30 0 60 0" CornerRadius="10" Background="#FFEEEEEE">
-                        <TextBlock Padding="5" Text="{DynamicResource allSelectBut}" VerticalAlignment="Center" />
-                    </Border>
+                    <Grid Width="513">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Border Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="10" Background="#FFD9D9D9">
+                            <TextBlock Padding="5" Text="{DynamicResource allSelectBut}" VerticalAlignment="Center" />
+                        </Border>
 
-                    <Border Margin="30 0 60 0" CornerRadius="10" Background="#FFEEEEEE">
-                        <TextBlock Padding="5" Text="{DynamicResource musicSelectBut}" VerticalAlignment="Center" />
-                    </Border>
+                        <Border Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="10" Background="#FFD9D9D9">
+                            <TextBlock Padding="5" Text="{DynamicResource musicSelectBut}" VerticalAlignment="Center" />
+                        </Border>
 
-                    <Border Margin="30 0 60 0" CornerRadius="10" Background="#FFEEEEEE">
-                        <TextBlock Padding="5" Text="{DynamicResource historySelectBut}" VerticalAlignment="Center" />
-                    </Border>
+                        <Border Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="10" Background="#FFD9D9D9">
+                            <TextBlock Padding="5" Text="{DynamicResource historySelectBut}" VerticalAlignment="Center" />
+                        </Border>
 
-                    <Border Margin="30 0 60 0" CornerRadius="10" Background="#FFEEEEEE">
-                        <TextBlock Padding="5" Text="{DynamicResource scienceSelectbut}" VerticalAlignment="Center" />
-                    </Border>
+                        <Border Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="10" Background="#FFD9D9D9">
+                            <TextBlock Padding="5" Text="{DynamicResource scienceSelectbut}" VerticalAlignment="Center" />
+                        </Border>
+                    </Grid>
                 </StackPanel>
             </Grid>
 
-            <Border Grid.Column="4" CornerRadius="17"  Background="#FFEEEEEE" Width="34" HorizontalAlignment="Center" Margin="12,18,11.6,18.4">
-                <Image Source="/Images/accountIcon.png" />
+            <Border Grid.Column="3" CornerRadius="17"  Background="#FFD9D9D9" Width="42" HorizontalAlignment="Center" Margin="38.4,10,30.8,18.4">
+                <Image Source="/Images/accountIcon.png" Margin="0,0,-0.4,-0.4" />
             </Border>
         </Grid>
 
@@ -143,29 +155,29 @@
             </Grid.ColumnDefinitions>
 
             <Grid Grid.Column="0">
-                <StackPanel x:Name="mainMenu">
-                    <Button x:Name="b1" Style="{StaticResource MultiTriggerMenuButtonStyle}" IsEnabled="False" Command="{Binding SetHomePage}" Margin=" 10 10 10 10" BorderBrush="Transparent" BorderThickness="0" HorizontalAlignment="Left">
+                <StackPanel x:Name="mainMenu" Background="#FFEEEEEE" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="10, 0, 10, 10">
+                    <Button x:Name="b1" Style="{StaticResource MultiTriggerButtonStyle}" IsEnabled="False" Command="{Binding SetHomePage}" Margin=" 10 10 10 10" BorderBrush="Transparent" BorderThickness="0" HorizontalAlignment="Left">
                         <StackPanel Orientation="Horizontal" Width="149">
                             <Image  Source="/Images/homeIcon.png" Width="39" Height="37" Margin="0" HorizontalAlignment="Left" />
                             <TextBlock Text="{DynamicResource homeBut}" VerticalAlignment="center" Margin="15 0 0 0" />
                         </StackPanel>
                     </Button>
 
-                    <Button x:Name="b2" Command="{Binding SetHistoryPage}" IsEnabled="False" Style="{StaticResource MultiTriggerMenuButtonStyle}" Margin=" 10 10 10 10" BorderBrush="Transparent" BorderThickness="0" HorizontalAlignment="Left">
+                    <Button x:Name="b2" Command="{Binding SetHistoryPage}" IsEnabled="False"  Style="{StaticResource MultiTriggerButtonStyle}" Margin=" 10 10 10 10" BorderBrush="Transparent" BorderThickness="0" HorizontalAlignment="Left">
                         <StackPanel Orientation="Horizontal" Width="149">
                             <Image Source="C:\Users\Andrew\source\repos\course_work\Images\historyIcon.png" Width="35" Height="35" Margin="0" HorizontalAlignment="Left" />
                             <TextBlock Text="{DynamicResource historyBut}" VerticalAlignment="center" Margin="15 0 0 0" />
                         </StackPanel>
                     </Button>
 
-                    <Button x:Name="b3" Command="{Binding SetWatchLaterPage}" IsEnabled="False" Style="{StaticResource MultiTriggerMenuButtonStyle}" Margin=" 10 10 10 10" BorderBrush="Transparent" BorderThickness="0" HorizontalAlignment="Left">
+                    <Button x:Name="b3" Command="{Binding SetWatchLaterPage}" IsEnabled="False" Style="{StaticResource MultiTriggerButtonStyle}" Margin=" 10 10 10 10" BorderBrush="Transparent" BorderThickness="0" HorizontalAlignment="Left">
                         <StackPanel Orientation="Horizontal" Width="149">
                             <Image Source="/Images/watchLaterIcon.png" Width="35" Height="32" Margin="0" HorizontalAlignment="Left" />
                             <TextBlock Text="{DynamicResource watchLaterBut}" VerticalAlignment="center" Margin="15 0 0 0" />
                         </StackPanel>
                     </Button>
 
-                    <Button x:Name="b4" Command="{Binding SetLikedPage}" IsEnabled="False" Style="{StaticResource MultiTriggerMenuButtonStyle}" Margin="10,10,0,10" BorderBrush="Transparent" BorderThickness="0" HorizontalAlignment="Left">
+                    <Button x:Name="b4" Command="{Binding SetLikedPage}" IsEnabled="False" Style="{StaticResource MultiTriggerButtonStyle}" Margin="10,10,0,10" BorderBrush="Transparent" BorderThickness="0" HorizontalAlignment="Left">
                         <StackPanel Orientation="Horizontal" Width="149">
                             <Image Source="C:\Users\Andrew\source\repos\course_work\Images\likedListIcon.png" Width="27" Height="30" Margin="5 0 0 0" HorizontalAlignment="Left" />
                             <TextBlock Text="{DynamicResource likedBut}" VerticalAlignment="center" Margin="15 0 0 0" />
@@ -177,12 +189,10 @@
                             <TextBlock Text="{DynamicResource lang}" VerticalAlignment="center" Margin="15 0 0 0" />
                         </StackPanel>
                     </StackPanel>
-                    <Button x:Name="b6" Margin="10,10,0,10" BorderBrush="Transparent" BorderThickness="0" HorizontalAlignment="Left" Background="Transparent">
-                        <StackPanel Orientation="Horizontal" Width="149">
-                            <local1:ToggleButton x:Name="Bu1" HorizontalAlignment="Center" VerticalAlignment="Center" />
-                            <TextBlock Text="{DynamicResource theme}" VerticalAlignment="center" Margin="15 0 0 0" />
-                        </StackPanel>
-                    </Button>
+
+                    <GroupBox Width="130" Header="{DynamicResource theme}">
+                        <ComboBox x:Name="styleBox" Grid.Column="1" Grid.Row="3" Margin="4 4 4 4" />
+                    </GroupBox>
                 </StackPanel>
             </Grid>
 

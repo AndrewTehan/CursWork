@@ -89,7 +89,7 @@
 
                     <StackPanel Name="MediaStack">
                         <Border Background="Black">
-                            <MediaElement Grid.Row="0" Source="{Binding Location}" Name="myMediaElement" LoadedBehavior="Manual" UnloadedBehavior="Stop" Stretch="Fill"
+                            <MediaElement Grid.Row="0" Source="{Binding Location}" Name="myMediaElement" LoadedBehavior="Manual" UnloadedBehavior="Manual" Stretch="Fill"
                                 MediaOpened="Element_MediaOpened" MediaEnded="Element_MediaEnded" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,10,9.8,10" Height="629" />
                         </Border>
 

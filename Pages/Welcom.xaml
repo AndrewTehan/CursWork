@@ -31,13 +31,26 @@
     </Page.Resources>
 
     <Grid>
-        <Grid.Background>
-            <ImageBrush ImageSource="..\Images\Background.png" />
-        </Grid.Background>
+        <!--<Grid.Background>
+            -->
+        <!--<ImageBrush ImageSource="..\Images\Background.png" />-->
+        <!--
+        </Grid.Background>-->
+        <!-- This rectangle is painted with a diagonal linear gradient. -->
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
+        <Rectangle Grid.ColumnSpan="2">
+            <Rectangle.Fill>
+                <LinearGradientBrush StartPoint="1.1,0" EndPoint="0,1">
+                    <GradientStop Color="Red" Offset="0.1" />
+                    <GradientStop Color="White" Offset="0.5" />
+                    <GradientStop Color="DarkCyan" Offset="1" />
+                    <GradientStop Color="White" Offset="1.0" />
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
 
         <Button Grid.Column="0" Style="{StaticResource MultiTriggerMenuButtonStyle}" x:Name="b1" Command="{Binding Authorization}"  BorderBrush="Transparent" BorderThickness="0" HorizontalAlignment="Center" VerticalAlignment="Center">
             <StackPanel Orientation="Horizontal" Width="149">
@@ -52,5 +65,6 @@
                 <TextBlock Text="{DynamicResource logInBut}" VerticalAlignment="center" Margin="15 0 0 0" />
             </StackPanel>
         </Button>
+        <Image Grid.Column="1" Source="/Images/informationIcon.png" MouseDown="PlayHelp" Width="20" Height="20" Margin="10" VerticalAlignment="Bottom" HorizontalAlignment="Right" />
     </Grid>
 </Page>

@@ -3,7 +3,8 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-      xmlns:local="clr-namespace:course_work.Pages" xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" d:DataContext="{d:DesignInstance Type=local:HistoryViewModel}"
+      xmlns:local="clr-namespace:course_work.Pages" xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+      d:DataContext="{d:DesignInstance Type=local:HistoryViewModel}"
       mc:Ignorable="d"
       d:DesignHeight="450" d:DesignWidth="800"
       Title="History">
@@ -61,7 +62,7 @@
                                         <RowDefinition Height="auto" />
                                     </Grid.RowDefinitions>
                                     <Image Grid.Row="0" Source="C:\Users\Andrew\source\repos\course_work\Images\homeIcon.png" />
-                                    <Label Grid.Row="1" FontSize="18" Content="{Binding MediaId}" />
+                                    <Label Grid.Row="1" FontSize="18" Content="{Binding IdMedia}" />
                                     <Label Grid.Row="2" Content="{Binding IdUser}" Background="{x:Null}" />
                                 </Grid>
                             </ListBoxItem>

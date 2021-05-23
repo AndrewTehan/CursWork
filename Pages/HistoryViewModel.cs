@@ -9,11 +9,9 @@ using System.Threading.Tasks;
 
 namespace course_work.Pages
 {
-    internal class HistoryViewModel : INotifyPropertyChanged
+    internal class HistoryViewModel
     {
         private ApplicationViewModel mainWinVM;
-
-        private HistoryMedia selectedMedia;
 
         private ObservableCollection<HistoryMedia> historyMedia;
 
@@ -30,6 +28,8 @@ namespace course_work.Pages
             }
         }
 
+        private HistoryMedia selectedMedia;
+
         public HistoryMedia SelectedMedia
         {
             get { return selectedMedia; }
@@ -40,70 +40,70 @@ namespace course_work.Pages
             }
         }
 
-        private RelayCommand playMedia;
+        //    private RelayCommand playMedia;
 
-        public RelayCommand PlayMedia
-        {
-            get
-            {
-                return playMedia ?? new RelayCommand(
-                    obg =>
-                    {
-                        mainWinVM.WelcomPage = new Pages.PlayingMedia(SelectedMedia, mainWinVM);
-                    }
-                );
-            }
-        }
+        //    public RelayCommand PlayMedia
+        //    {
+        //        get
+        //        {
+        //            return playMedia ?? new RelayCommand(
+        //                obg =>
+        //                {
+        //                    mainWinVM.WelcomPage = new Pages.PlayingMedia(SelectedMedia, mainWinVM);
+        //                }
+        //            );
+        //        }
+        //    }
 
-        public int HistoryMediaId
-        {
-            get
-            {
-                return SelectedMedia.HistoryMediaId;
-            }
-            set
-            {
-                SelectedMedia.HistoryMediaId = value;
-                OnPropertyChanged("HistoryMediaId");
-            }
-        }
+        //    public int HistoryMediaId
+        //    {
+        //        get
+        //        {
+        //            return SelectedMedia.HistoryMediaId;
+        //        }
+        //        set
+        //        {
+        //            SelectedMedia.HistoryMediaId = value;
+        //            OnPropertyChanged("HistoryMediaId");
+        //        }
+        //    }
 
-        public string NameUser
-        {
-            get
-            {
-                return SelectedMedia.NameUser;
-            }
-            set
-            {
-                SelectedMedia.NameUser = value;
-                OnPropertyChanged("NameUser");
-            }
-        }
+        //    public string NameUser
+        //    {
+        //        get
+        //        {
+        //            return SelectedMedia.NameUser;
+        //        }
+        //        set
+        //        {
+        //            SelectedMedia.NameUser = value;
+        //            OnPropertyChanged("NameUser");
+        //        }
+        //    }
 
-        public int MediaId
-        {
-            get
-            {
-                return SelectedMedia.MediaId;
-            }
-            set
-            {
-                SelectedMedia.MediaId = value;
-                OnPropertyChanged("Type");
-            }
-        }
+        //    public int MediaId
+        //    {
+        //        get
+        //        {
+        //            return SelectedMedia.MediaId;
+        //        }
+        //        set
+        //        {
+        //            SelectedMedia.MediaId = value;
+        //            OnPropertyChanged("Type");
+        //        }
+        //    }
 
         public HistoryViewModel(ApplicationViewModel mainWinVm)
         {
+            this.mainWinVM = mainWinVm;
             this.HistoryMedia = new ObservableCollection<HistoryMedia>();
             using (ApplicationContext applicatinContext = new ApplicationContext())
             {
-                var c = applicatinContext.HistorieMedias.Where(u => true).ToList();
+                var c = applicatinContext.HistorieMedias.ToList();
                 foreach (var i in c)
                     this.HistoryMedia.Add(i);
             }
-            this.mainWinVM = mainWinVm;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

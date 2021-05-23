@@ -1,7 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:course_work">
-    <Style TargetType="{x:Type Button}" x:Key="BorderlessButton">
+    <!--<Style TargetType="{x:Type Button}" x:Key="BorderlessButton">
         <Setter Property="Background" Value="#373737" />
         <Setter Property="Foreground" Value="White" />
         <Setter Property="FontSize" Value="15" />
@@ -32,9 +32,9 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-    </Style>
+    </Style>-->
 
     <ItemsPanelTemplate x:Key="WrapTemplate">
-        <WrapPanel ItemWidth="250px" Margin="20" />
+        <WrapPanel ItemWidth="210px" Margin="10" />
     </ItemsPanelTemplate>
 </ResourceDictionary>

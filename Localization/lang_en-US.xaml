@@ -12,7 +12,7 @@
     <v:String x:Key="historySelectBut">History</v:String>
     <v:String x:Key="scienceSelectbut">Science</v:String>
     <v:String x:Key="MediaLibrary">MediaLibrary</v:String>
-    <v:String x:Key="theme">theme</v:String>
+    <v:String x:Key="theme">Theme</v:String>
     <v:String x:Key="WelcomLabel">Hellow!!!</v:String>
     <v:String x:Key="ActionLabel">Sing in or register</v:String>
     <v:String x:Key="logInBut">Register</v:String>

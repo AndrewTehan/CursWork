@@ -8,12 +8,22 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Controls;
 using System.Windows;
+using System.Windows.Media.Imaging;
+using Microsoft.Win32;
+using System.IO;
 
 namespace course_work.Pages
 {
     internal class AuthorizationViewModel
     {
         private ApplicationViewModel mainWinVM;
+
+        public static User currentUser;
+
+        public static User getCurrentUser()
+        {
+            return currentUser;
+        }
 
         private string login;
 
@@ -65,26 +75,43 @@ namespace course_work.Pages
                 {
                     if (Login != null && Pass != null)
                     {
-                        using (ApplicationContext db = new ApplicationContext())
-                        {
-                            Media p1 = new Media { Type = "video", Location = @"C:\Users\Andrew\Videos\mp4" };
-                            Media p2 = new Media { Type = "video", Location = @"C:\Users\Andrew\Videos\mp4" };
-                            Media p3 = new Media { Type = "video", Location = @"C:\Users\Andrew\Videos\mp4" };
-                            Media p4 = new Media { Type = "video", Location = @"C:\Users\Andrew\Videos\mp4" };
+                        //using (ApplicationContext db = new ApplicationContext())
+                        //{
+                        //    OpenFileDialog dialog = new OpenFileDialog();
+                        //    byte[] arrImage = null;
+                        //    if (dialog.ShowDialog() == true)
+                        //    {
+                        //        var imageBitMap = new BitmapImage();
+                        //        imageBitMap.BeginInit();
+                        //        imageBitMap.UriSource = new Uri(dialog.FileName);
+                        //        imageBitMap.EndInit();
+                        //        Uri uri = imageBitMap.UriSource;
+                        //        arrImage = File.ReadAllBytes(uri.OriginalString);
+                        //    }
 
-                            // добавление
-                            db.Medias.Add(p1);
-                            db.Medias.Add(p2);
-                            db.Medias.Add(p3);
-                            db.Medias.Add(p4);
-                            db.SaveChanges();
-                        }
+                        //    Media p1 = new Media { Type = "video", Location = @"C:\Users\Andrew\Videos\War.mp4", ImageBytes = arrImage };
+                        //    Media p2 = new Media { Type = "video", Location = @"C:\Users\Andrew\Videos\War.mp4", ImageBytes = arrImage };
+                        //    Media p3 = new Media { Type = "video", Location = @"C:\Users\Andrew\Videos\War.mp4", ImageBytes = arrImage };
+                        //    Media p4 = new Media { Type = "video", Location = @"C:\Users\Andrew\Videos\War.mp4", ImageBytes = arrImage };
+
+                        //    // добавление
+                        //    db.Medias.Add(p1);
+                        //    db.Medias.Add(p2);
+                        //    db.Medias.Add(p3);
+                        //    db.Medias.Add(p4);
+                        //    db.SaveChanges();
+                        //}
                         using (ApplicationContext db = new ApplicationContext())
                         {
                             var user = db.Users.Where(u => u.Nickname == Login && u.Password == Pass).ToList();
                             if (user.Count == 1)
                             {
                                 MessageBox.Show("Приветсвую тебя, чемпион!!!");
+                                currentUser = new User
+                                {
+                                    Password = Pass,
+                                    Nickname = Login
+                                };
                                 mainWinVM.WelcomPage = new Home(mainWinVM);
                             }
                             else
