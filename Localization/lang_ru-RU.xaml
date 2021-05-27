@@ -17,4 +17,5 @@
     <v:String x:Key="ActionLabel">Авторизуйтесь или зарегистрируйтесь</v:String>
     <v:String x:Key="logInBut">Зарегиструйтесь</v:String>
     <v:String x:Key="singInBut">Авторизуйтесь</v:String>
+    <v:String x:Key="add">Добавить</v:String>
 </ResourceDictionary>

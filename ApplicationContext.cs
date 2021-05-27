@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
+using course_work.Model;
 
 namespace course_work
 {
@@ -18,6 +19,7 @@ namespace course_work
         public DbSet<Media> Medias { get; set; }
         public DbSet<LikedMedia> LikedMedias { get; set; }
         public DbSet<HistoryMedia> HistorieMedias { get; set; }
+        public DbSet<WatchLaterMedia> WatchLaterMedias { get; set; }
         public DbSet<Сomment> Comments { get; set; }
         public DbSet<Discription> Discriptions { get; set; }
     }

@@ -17,4 +17,5 @@
     <v:String x:Key="ActionLabel">Sing in or register</v:String>
     <v:String x:Key="logInBut">Register</v:String>
     <v:String x:Key="singInBut">Sing in</v:String>
+    <v:String x:Key="add">Add</v:String>
 </ResourceDictionary>

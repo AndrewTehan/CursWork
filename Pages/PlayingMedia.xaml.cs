@@ -25,6 +25,7 @@ namespace course_work.Pages
 
         public bool play = false;
         public bool sound_on = true;
+        public bool like_on = true;
         public bool screen = true;
         private TimeSpan ts2;
         private bool isDragging = false;
@@ -34,13 +35,6 @@ namespace course_work.Pages
             InitializeComponent();
 
             DataContext = new PlayingMediaVeiwModel(media, mainWinVm);
-        }
-
-        public PlayingMedia(HistoryMedia historyMedia, ApplicationViewModel mainWinVm)
-        {
-            InitializeComponent();
-
-            DataContext = new PlayingMediaVeiwModel(historyMedia, mainWinVm);
         }
 
         private void playMedia(object sender, RoutedEventArgs e)
@@ -93,102 +87,79 @@ namespace course_work.Pages
             sound_on = !sound_on;
         }
 
-        // Play the media.
         private void OnMouseDownPlayMedia(object sender, MouseButtonEventArgs args)
         {
-            // The Play method will begin the media if it is not currently active or
-            // resume media if it is paused. This has no effect if the media is
-            // already running.
             myMediaElement.Play();
-
-            // Initialize the MediaElement property values.
             InitializePropertyValues();
         }
 
-        // Pause the media.
         private void OnMouseDownPauseMedia(object sender, MouseButtonEventArgs args)
         {
-            // The Pause method pauses the media if it is currently running.
-            // The Play method can be used to resume.
             myMediaElement.Pause();
         }
 
-        // Stop the media.
         private void OnMouseDownStopMedia(object sender, MouseButtonEventArgs args)
         {
-            // The Stop method stops and resets the media to be played from
-            // the beginning.
             myMediaElement.Stop();
             myMediaElement.Play();
             timelineSlider.Value = 0;
         }
 
-        // Change the volume of the media.
         private void ChangeMediaVolume(object sender, RoutedPropertyChangedEventArgs<double> args)
         {
             myMediaElement.Volume = (double)volumeSlider.Value;
         }
 
-        // Change the speed of the media.
         private void ChangeMediaSpeedRatio(object sender, RoutedPropertyChangedEventArgs<double> args)
         {
             myMediaElement.SpeedRatio = (double)speedRatioSlider.Value;
         }
 
-        // When the media opens, initialize the "Seek To" slider maximum value
-        // to the total number of miliseconds in the length of the media clip.
         private void Element_MediaOpened(object sender, EventArgs e)
         {
             timelineSlider.Maximum = myMediaElement.NaturalDuration.TimeSpan.TotalMilliseconds;
         }
 
-        // When the media playback is finished. Stop() the media to seek to media start.
         private void Element_MediaEnded(object sender, EventArgs e)
         {
             myMediaElement.Stop();
         }
 
-        // Jump to different parts of the media (seek to).
-
         private void SeekToMediaPosition(object sender, RoutedPropertyChangedEventArgs<double> args)
         {
             int SliderValue = (int)timelineSlider.Value;
 
-            // Overloaded constructor takes the arguments days, hours, minutes, seconds, milliseconds.
-            // Create a TimeSpan with miliseconds equal to the slider value.
             TimeSpan ts = new TimeSpan(0, 0, 0, 0, SliderValue);
             myMediaElement.Position = ts;
         }
 
         private void InitializePropertyValues()
         {
-            // Set the media's starting Volume and SpeedRatio to the current value of the
-            // their respective slider controls.
             myMediaElement.Volume = (double)volumeSlider.Value;
             myMediaElement.SpeedRatio = (double)speedRatioSlider.Value;
         }
 
         #endregion MediaElementManipulating
 
-        private void screenSize(object sender, MouseButtonEventArgs e)
+        private void LikeMedia(object sender, MouseButtonEventArgs e)
         {
-            if (!screen)
+            if (!like_on)
             {
                 BitmapImage bi3 = new BitmapImage();
                 bi3.BeginInit();
-                bi3.UriSource = new Uri(@"\Images\normalScreenIcon.png", UriKind.Relative);
+                bi3.UriSource = new Uri(@"/Images/likeIcon.png", UriKind.Relative);
                 bi3.EndInit();
-                ImageScreen.Source = bi3;
+                likeBut.Source = bi3;
             }
             else
             {
                 BitmapImage bi3 = new BitmapImage();
                 bi3.BeginInit();
-                bi3.UriSource = new Uri(@"\Images\fullScreenIcon.png", UriKind.Relative);
+                bi3.UriSource = new Uri(@"/Images/likedIcon.png", UriKind.Relative);
                 bi3.EndInit();
-                ImageScreen.Source = bi3;
+                likeBut.Source = bi3;
             }
-            screen = !screen;
+            like_on = !like_on;
         }
     }
 }

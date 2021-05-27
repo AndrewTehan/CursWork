@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:course_work"
         xmlns:local1="clr-namespace:ToggleSwitch"
         xmlns:control = "clr-namespace:course_work"
+        d:DataContext="{d:DesignInstance Type=local:ApplicationViewModel}"
         mc:Ignorable="d"
         Icon="C:\Users\Andrew\source\repos\course_work\Images\smallLogo.png"
         Title="ML"
@@ -138,7 +139,7 @@
             </Grid>
 
             <Border Grid.Column="3" CornerRadius="17"  Background="#FFD9D9D9" Width="42" HorizontalAlignment="Center" Margin="38.4,10,30.8,18.4">
-                <Image Source="/Images/accountIcon.png" Margin="0,0,-0.4,-0.4" />
+                <Image Source="/Images/accountIcon.png" Margin="0,0,-0.4,-0.4" MouseDown="OpenProfile" />
             </Border>
         </Grid>
 
@@ -170,20 +171,21 @@
                         </StackPanel>
                     </Button>
 
-                    <Button x:Name="b3" Command="{Binding SetWatchLaterPage}" IsEnabled="False" Style="{StaticResource MultiTriggerButtonStyle}" Margin=" 10 10 10 10" BorderBrush="Transparent" BorderThickness="0" HorizontalAlignment="Left">
+                    <Button x:Name="b4" Command="{Binding SetLikedPage}" IsEnabled="False" Style="{StaticResource MultiTriggerButtonStyle}" Margin=" 10 10 10 10" BorderBrush="Transparent" BorderThickness="0" HorizontalAlignment="Left">
                         <StackPanel Orientation="Horizontal" Width="149">
-                            <Image Source="/Images/watchLaterIcon.png" Width="35" Height="32" Margin="0" HorizontalAlignment="Left" />
-                            <TextBlock Text="{DynamicResource watchLaterBut}" VerticalAlignment="center" Margin="15 0 0 0" />
-                        </StackPanel>
-                    </Button>
-
-                    <Button x:Name="b4" Command="{Binding SetLikedPage}" IsEnabled="False" Style="{StaticResource MultiTriggerButtonStyle}" Margin="10,10,0,10" BorderBrush="Transparent" BorderThickness="0" HorizontalAlignment="Left">
-                        <StackPanel Orientation="Horizontal" Width="149">
-                            <Image Source="C:\Users\Andrew\source\repos\course_work\Images\likedListIcon.png" Width="27" Height="30" Margin="5 0 0 0" HorizontalAlignment="Left" />
+                            <Image Source="/Images/likedListIcon.png" Width="35" Height="32" Margin="0" HorizontalAlignment="Left" />
                             <TextBlock Text="{DynamicResource likedBut}" VerticalAlignment="center" Margin="15 0 0 0" />
                         </StackPanel>
                     </Button>
-                    <StackPanel x:Name="b5" Margin="10,10,0,10" HorizontalAlignment="Left" Background="Transparent">
+
+                    <Button x:Name="b5" Command="{Binding SetAddPage}" IsEnabled="False" Style="{StaticResource MultiTriggerButtonStyle}" Margin="10,10,0,10" BorderBrush="Transparent" BorderThickness="0" HorizontalAlignment="Left">
+                        <StackPanel Orientation="Horizontal" Width="149">
+                            <Image Source="C:\Users\Andrew\source\course_workEFtest\Images\addFileIcon.png" Width="27" Height="30" Margin="5 0 0 0" HorizontalAlignment="Left" />
+                            <TextBlock Text="{DynamicResource add}" VerticalAlignment="center" Margin="15 0 0 0" />
+                        </StackPanel>
+                    </Button>
+
+                    <StackPanel x:Name="b6" Margin="10,10,0,10" HorizontalAlignment="Left" Background="Transparent">
                         <StackPanel Orientation="Horizontal" Width="149">
                             <local1:ToggleButton x:Name="Bu" HorizontalAlignment="Center" VerticalAlignment="Center" />
                             <TextBlock Text="{DynamicResource lang}" VerticalAlignment="center" Margin="15 0 0 0" />

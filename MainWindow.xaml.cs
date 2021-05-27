@@ -1,19 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using course_work.Pages;
+using System;
 using System.Media;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
-using ToggleSwitch;
 
 namespace course_work
 {
@@ -61,7 +52,7 @@ namespace course_work
         {
             if (mainFrame.Content.ToString() != "course_work.Pages.Welcom" && mainFrame.Content.ToString() != "course_work.Pages.Authorization" && mainFrame.Content.ToString() != "course_work.Pages.Registration")
             {
-                b1.IsEnabled = b2.IsEnabled = b3.IsEnabled = b4.IsEnabled = menuBut.IsEnabled = true;
+                b1.IsEnabled = b2.IsEnabled = b4.IsEnabled = b5.IsEnabled = menuBut.IsEnabled = true;
             }
         }
 
@@ -73,6 +64,19 @@ namespace course_work
             };
             sp.Load();
             sp.Play();
+        }
+
+        private void OpenProfile(object sender, MouseButtonEventArgs e)
+        {
+            if (AuthorizationViewModel.currentUser != null)
+            {
+                string profikeInfo = "Привет, " + AuthorizationViewModel.currentUser.Nickname + "!!!";
+                MessageBox.Show(profikeInfo);
+            }
+            else
+            {
+                MessageBox.Show("Вначале зайди в аккаунт!!!");
+            }
         }
     }
 }

@@ -3,7 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-      xmlns:local="clr-namespace:course_work.Pages" d:DataContext="{d:DesignInstance Type=local:PlayingMediaVeiwModel}"
+      xmlns:local="clr-namespace:course_work.Pages"
       mc:Ignorable="d"
       HorizontalAlignment="Stretch"
       Title="PlayingMedia">
@@ -79,7 +79,7 @@
 
     <Grid>
         <ScrollViewer VerticalScrollBarVisibility="Visible">
-            <StackPanel DataContext="{Binding media}" Background="WhiteSmoke">
+            <StackPanel Background="WhiteSmoke">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition />
@@ -89,7 +89,7 @@
 
                     <StackPanel Name="MediaStack">
                         <Border Background="Black">
-                            <MediaElement Grid.Row="0" Source="{Binding Location}" Name="myMediaElement" LoadedBehavior="Manual" UnloadedBehavior="Manual" Stretch="Fill"
+                            <MediaElement DataContext="{Binding media}" Grid.Row="0" Source="{Binding Location}" Name="myMediaElement" LoadedBehavior="Manual" UnloadedBehavior="Manual" Stretch="Fill"
                                 MediaOpened="Element_MediaOpened" MediaEnded="Element_MediaEnded" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,10,9.8,10" Height="629" />
                         </Border>
 
@@ -104,24 +104,21 @@
                                 </StackPanel>
                                 <Grid Grid.Row="1">
                                     <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="10*" />
                                         <ColumnDefinition Width="15*" />
-                                        <ColumnDefinition Width="10*" />
-                                        <ColumnDefinition Width="10*" />
-                                        <ColumnDefinition Width="10*" />
+                                        <ColumnDefinition Width="15*" />
+                                        <ColumnDefinition Width="15*" />
                                         <ColumnDefinition Width="17*" />
                                         <ColumnDefinition Width="6*" />
                                         <ColumnDefinition Width="17*" />
-                                        <ColumnDefinition Width="10*" />
+                                        <ColumnDefinition Width="15*" />
                                         <ColumnDefinition Width="15*" />
                                     </Grid.ColumnDefinitions>
 
-                                    <Border x:Name="BorderTextBegin" Grid.Column="0">
-                                        <TextBlock x:Name="time" TextWrapping="Wrap" Height="19" Width="57" Text="  --:--" Foreground="Black" Margin="10,0,0,0" />
-                                    </Border>
-
-                                    <Border  x:Name="BorderTextEnd" Grid.Column="8" Opacity="1">
-                                        <TextBlock x:Name="timeend" TextWrapping="Wrap" Height="22" Width="60" Text="   --:--" Foreground="Black" Margin="7,0,0,0" />
-                                    </Border>
+                                    <Button Grid.Column="7" Background="Transparent" Command="{Binding SetLike}" BorderThickness="0">
+                                        <Image x:Name="likeBut" Source="/Images/likeIcon.png" MouseDown="LikeMedia">
+                                        </Image>
+                                    </Button>
 
                                     <Image Grid.Column="1" MouseDown="playMedia" x:Name="ImagePlay" Source="/Images/playIcon.png" Margin="9,4,7.333,4" />
 
@@ -131,7 +128,7 @@
                                     Source="/Images/soundOnIcon.png" Margin="10.333,4,8.333,4" />
 
                                     <StackPanel Grid.Column="4" Margin="0,0,1.667,0">
-                                        <TextBlock Foreground="Black" VerticalAlignment="Center" Margin="5" Text="Volume" />
+                                        <TextBlock Foreground="Black" VerticalAlignment="Center" Text="Volume" />
                                         <Slider Name="volumeSlider" VerticalAlignment="Center" ValueChanged="ChangeMediaVolume"
                                         Minimum="0" Maximum="1" Value="0.5" Width="70" HorizontalAlignment="Left" Margin="3,0,0,0" />
                                     </StackPanel>
@@ -141,18 +138,20 @@
                                         <Slider Name="speedRatioSlider" VerticalAlignment="Center" HorizontalAlignment="Left" ValueChanged="ChangeMediaSpeedRatio"
                                             Value="1" Maximum="3" Minimum="1" Width="70" />
                                     </StackPanel>
-                                    <Image Grid.Column="7" MouseDown="screenSize"  x:Name="ImageScreen" Source="/Images/fullScreenIcon.png" />
                                 </Grid>
                             </Grid>
                         </StackPanel>
                     </StackPanel>
 
-                    <StackPanel Grid.Row="2">
-                        <TextBlock Text="Name" Grid.Row="0" HorizontalAlignment="Center"  VerticalAlignment="Center" />
+                    <StackPanel Grid.Row="2" DataContext="{Binding media}">
+
                         <TextBlock Text="{Binding Id}" HorizontalAlignment="Center" VerticalAlignment="Bottom" />
 
-                        <TextBlock Text="Type" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" />
                         <TextBlock Text="{Binding Type}" HorizontalAlignment="Center" VerticalAlignment="Bottom" />
+
+                        <TextBlock Text="{Binding Title}" HorizontalAlignment="Center" VerticalAlignment="Bottom" />
+
+                        <TextBlock Text="{Binding Location}" HorizontalAlignment="Center" VerticalAlignment="Bottom" />
                     </StackPanel>
                 </Grid>
             </StackPanel>

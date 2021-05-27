@@ -3,7 +3,8 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-      xmlns:local="clr-namespace:course_work.Pages" xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+      xmlns:local="clr-namespace:course_work.Pages"
+      xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
       d:DataContext="{d:DesignInstance Type=local:HistoryViewModel}"
       mc:Ignorable="d"
       d:DesignHeight="450" d:DesignWidth="800"
@@ -45,12 +46,12 @@
         <ScrollViewer Background="Transparent">
             <StackPanel ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="Transparent">
                 <ListBox Margin="0" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="Transparent" ItemsPanel="{StaticResource WrapTemplate}"
-                         ItemsSource="{Binding HistoryMedia}" SelectedItem="{Binding SelectedMedia}" SelectionChanged="ListBox_SelectionChanged">
-                    <i:Interaction.Triggers>
+                         ItemsSource="{Binding HistoryMedia}">
+                    <!--<i:Interaction.Triggers>
                         <i:EventTrigger EventName="SelectionChanged">
                             <i:InvokeCommandAction Command="{Binding PlayMedia}" />
                         </i:EventTrigger>
-                    </i:Interaction.Triggers>
+                    </i:Interaction.Triggers>-->
 
                     <ListBox.ItemTemplate>
                         <DataTemplate>
@@ -61,9 +62,9 @@
                                         <RowDefinition Height="auto" />
                                         <RowDefinition Height="auto" />
                                     </Grid.RowDefinitions>
-                                    <Image Grid.Row="0" Source="C:\Users\Andrew\source\repos\course_work\Images\homeIcon.png" />
+                                    <Image Grid.Row="0" Source="{Binding Image}" />
                                     <Label Grid.Row="1" FontSize="18" Content="{Binding IdMedia}" />
-                                    <Label Grid.Row="2" Content="{Binding IdUser}" Background="{x:Null}" />
+                                    <Label Grid.Row="2" FontSize="18" Content="{Binding Title}" />
                                 </Grid>
                             </ListBoxItem>
                         </DataTemplate>

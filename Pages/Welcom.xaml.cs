@@ -28,7 +28,7 @@ namespace course_work.Pages
             DataContext = new WelcomViewModel(mainWinVm);
         }
 
-        private void PlayHelp(object sender, MouseButtonEventArgs e)
+        public void PlayHelp(object sender, MouseButtonEventArgs e)
         {
             SoundPlayer sp = new SoundPlayer
             {
