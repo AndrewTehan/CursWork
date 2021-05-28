@@ -1,114 +1,71 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="course_work.HistoryMedia" Collapsed="true">
-    <Position X="13.75" Y="2.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>QAAAEAAAAIAAAEAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
-      <FileName>Model\HistoryMedia.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="course_work.LikedMedia" Collapsed="true">
-    <Position X="15.5" Y="2.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>QAAAAAAAAIAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAA=</HashCode>
-      <FileName>Model\LikedMedia.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="course_work.Media" Collapsed="true">
-    <Position X="10.25" Y="2.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAACEAAAAAAAAEAABAIAAAAAAAAAAAAAAYAAAAABAAA=</HashCode>
-      <FileName>Model\Media.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="course_work.User" Collapsed="true">
-    <Position X="12" Y="2.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAADAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAA=</HashCode>
-      <FileName>Model\User.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="course_work.RelayCommand" Collapsed="true">
-    <Position X="15.5" Y="2" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAACAAQAAEAEAABAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>RelayCommand.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" />
-  </Class>
-  <Class Name="course_work.ApplicationContext" Collapsed="true">
-    <Position X="8.5" Y="3.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAACgAAAAAAAAAAAAAAAAAgAAAAACAAIAAAAAAIAQ=</HashCode>
-      <FileName>ApplicationContext.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="course_work.Pages.Add" Collapsed="true">
-    <Position X="8.5" Y="4.75" Width="1.5" />
+  <Class Name="course_work.Pages.Add" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="7" Y="1.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Pages\Add.xaml.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
+    <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="course_work.Pages.Authorization" Collapsed="true">
-    <Position X="10.25" Y="4.75" Width="1.5" />
+  <Class Name="course_work.Pages.Authorization" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="8.75" Y="1.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Pages\Authorization.xaml.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
+    <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="course_work.Pages.History" Collapsed="true">
-    <Position X="12" Y="4.75" Width="1.5" />
+  <Class Name="course_work.Pages.History" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="10.5" Y="1.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Pages\History.xaml.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
+    <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="course_work.Pages.Home" Collapsed="true">
-    <Position X="13.75" Y="4.75" Width="1.5" />
+  <Class Name="course_work.Pages.Home" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="7" Y="2.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAA=</HashCode>
       <FileName>Pages\Home.xaml.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
+    <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="course_work.Pages.Liked" Collapsed="true">
-    <Position X="15.5" Y="4.75" Width="1.5" />
+  <Class Name="course_work.Pages.Liked" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="8.75" Y="2.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Pages\Liked.xaml.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
+    <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="course_work.Pages.PlayingMedia" Collapsed="true">
-    <Position X="10.25" Y="3.75" Width="1.5" />
+  <Class Name="course_work.Pages.PlayingMedia" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="10.5" Y="2.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAgAAAAAAAAkAQAMAAAAQAAQCAEBAABgSQAAAAAUA=</HashCode>
       <FileName>Pages\PlayingMedia.xaml.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
+    <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="course_work.Pages.Registration" Collapsed="true">
-    <Position X="15.5" Y="3.75" Width="1.5" />
+  <Class Name="course_work.Pages.Registration" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="7" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Pages\Registration.xaml.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
+    <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="course_work.Pages.Welcom" Collapsed="true">
-    <Position X="13.75" Y="3.75" Width="1.5" />
+  <Class Name="course_work.Pages.Welcom" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="8.75" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
       <FileName>Pages\Welcom.xaml.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
+    <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="ToggleSwitch.ToggleButton" Collapsed="true">
-    <Position X="12" Y="3.75" Width="1.5" />
+  <Class Name="ToggleSwitch.ToggleButton">
+    <Position X="10.5" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAQIAAAAAEAAgAIAAAAAAAAQCSAAAAAAAAAAAAAIA=</HashCode>
       <FileName>UI\ToggleButton.xaml.cs</FileName>
@@ -116,14 +73,14 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="course_work.ViewModel.AddViewMadel" Collapsed="true">
-    <Position X="10.25" Y="2" Width="1.5" />
+    <Position X="12.25" Y="1.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ACIAAAAAAAQAAAiEIAAIAAAAgAAAAAAAAAAAAAAiAAA=</HashCode>
       <FileName>ViewModel\AddViewMadel.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="course_work.ApplicationViewModel" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="12" Y="1.25" Width="1.5" />
+    <Position X="14" Y="1.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAyAEAAEAEgAAQRAIAUAAAGAgAABgAgAAAIpCAAIBRA=</HashCode>
       <FileName>ViewModel\ApplicationViewModel.cs</FileName>
@@ -131,21 +88,21 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="course_work.Pages.AuthorizationViewModel" Collapsed="true">
-    <Position X="13.75" Y="2" Width="1.5" />
+    <Position X="15.75" Y="1.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AABAAAAAQAQAAACEIAAgACAAgAAAAAAAAAAQAAAAEAA=</HashCode>
       <FileName>ViewModel\AuthorizationViewModel.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="course_work.Pages.HistoryViewModel" Collapsed="true">
-    <Position X="13.75" Y="1.25" Width="1.5" />
+    <Position X="12.25" Y="2.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAIAAAACAAACAIgAAAAIAgAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ViewModel\HistoryViewModel.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="course_work.Pages.HomeViewModel" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="15.5" Y="1.25" Width="1.5" />
+    <Position X="14" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAQAEAkCAJgIAAAIAgAAAAAAAAQAABAAAAAQ=</HashCode>
       <FileName>ViewModel\HomeViewModel.cs</FileName>
@@ -153,14 +110,14 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="course_work.Pages.LikedViewModel" Collapsed="true">
-    <Position X="10.25" Y="1.25" Width="1.5" />
+    <Position X="15.75" Y="2.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAACAIgAAAAIAgAAAAAAAEAAAABAAAAA=</HashCode>
       <FileName>ViewModel\LikedViewModel.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="course_work.Pages.PlayingMediaVeiwModel" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="8.5" Y="1.25" Width="1.5" />
+    <Position X="12.25" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAACAAACAIgIAAAIAgAAAAAAAAQAABAAAEAA=</HashCode>
       <FileName>ViewModel\PlayingMediaVeiwModel.cs</FileName>
@@ -168,25 +125,61 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="course_work.Pages.RegistrationViewModel" Collapsed="true">
-    <Position X="12" Y="2" Width="1.5" />
+    <Position X="14" Y="2.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AABAAAAAQAQEAECEJAAAAAAAgAAAAAAAAAAQAAAAEAA=</HashCode>
       <FileName>ViewModel\RegistrationViewModel.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="course_work.Pages.WelcomViewModel" Collapsed="true">
-    <Position X="8.5" Y="2" Width="1.5" />
+    <Position X="15.75" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAACAIAAAIIAAgAAAAAAAAAAAAAAEAAA=</HashCode>
       <FileName>ViewModel\WelcomViewModel.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="course_work.App" Collapsed="true">
-    <Position X="8.5" Y="2.75" Width="1.5" />
+  <Class Name="course_work.HistoryMedia">
+    <Position X="12.25" Y="4" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>App.xaml.cs</FileName>
+      <HashCode>QAAAEAAAAIAAAEAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\HistoryMedia.cs</FileName>
     </TypeIdentifier>
+  </Class>
+  <Class Name="course_work.LikedMedia">
+    <Position X="14" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAIAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\LikedMedia.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="course_work.Media">
+    <Position X="14" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACEAAAAAAAAEAABAIAAAAAAAAAAAAAAYAAAAABAAA=</HashCode>
+      <FileName>Model\Media.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="course_work.User">
+    <Position X="12.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAADAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Model\User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="course_work.ApplicationContext">
+    <Position X="15.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACgAAAAAAAAAAAAAAAAAgAAAAACAAIAAAAAAIAQ=</HashCode>
+      <FileName>ApplicationContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="course_work.RelayCommand">
+    <Position X="8.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAQAAEAEAABAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>RelayCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>
